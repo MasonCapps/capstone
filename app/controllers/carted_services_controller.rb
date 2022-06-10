@@ -1,0 +1,2 @@
+class CartedServicesController < ApplicationController
+end
