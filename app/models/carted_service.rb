@@ -1,0 +1,2 @@
+class CartedService < ApplicationRecord
+end
