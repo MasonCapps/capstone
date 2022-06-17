@@ -9,3 +9,12 @@ Content-Type: application/json
   "password": "password",
   "creator": true
 }
+
+### Sessions create (login)
+POST http://localhost:3000/sessions.json
+Content-Type: application/json
+
+{
+  "email": "mason@test.com",
+  "password": "password"
+}

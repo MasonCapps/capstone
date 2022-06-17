@@ -1,8 +1,0 @@
-### Sessions create (login)
-POST http://localhost:3000/sessions.json
-Content-Type: application/json
-
-{
-  "email": "mason@test.com",
-  "password": "password"
-}

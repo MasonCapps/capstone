@@ -1,1 +1,19 @@
-@jwt =
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTU1NzA1MzN9.fPm7SdwyVnkmCLMumC7Sk-BxeTeF5UaeMFPJitbaL9s
+
+### Shows a customers carted services
+GET http://localhost:3000/sites/1/carted_services
+Authorization: Bearer {{jwt}}
+
+### Creates a carted service
+POST http://localhost:3000/sites/1/carted_services
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+  "service_id": 1,
+  "scheduled_date": "June 17, 2022"
+}
+
+### Deletes a carted service
+DELETE http://localhost:3000/sites/1/carted_services/3
+Authorization: Bearer {{jwt}}
