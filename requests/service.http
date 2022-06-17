@@ -1,1 +1,26 @@
-@jwt =
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTU1NzA1MzN9.fPm7SdwyVnkmCLMumC7Sk-BxeTeF5UaeMFPJitbaL9s
+
+### Creates a service
+POST http://localhost:3000/sites/1/services
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+  "name": "Test",
+  "price": 10,
+  "frequency": "Test"
+}
+
+### Updates a service
+PATCH http://localhost:3000/sites/1/services/3
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+  "name": "Gardening",
+  "price": 50,
+  "frequency": "Monthly"
+}
+
+### Deletes a service
+DELETE http://localhost:3000/sites/1/services/3

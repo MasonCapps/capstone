@@ -16,16 +16,22 @@ class SitesController < ApplicationController
       user_id: current_user.id,
       name: params[:name],
     )
-    site.save
-    render json: { message: "Site successfully created!" }
+    if site.save
+      render json: site.as_json
+    else
+      render json: { errors: site.errors.full_messages }, status: 422
+    end
   end
 
   def update
     site = Site.find_by(id: params[:id])
     site.name = params[:name]
 
-    site.save
-    render json: { message: "Site successfully updated!" }
+    if site.save
+      render json: site.as_json
+    else
+      render json: { errors: site.errors.full_messages }, status: 422
+    end
   end
 
   def destroy

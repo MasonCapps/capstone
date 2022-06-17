@@ -17,14 +17,14 @@ Content-Type: application/json
 }
 
 ### Updates a site
-PATCH http://localhost:3000/sites/2
+PATCH http://localhost:3000/sites/4
 Authorization: Bearer {{jwt}}
 Content-Type: application/json
 
 {
-  "name": "Mason's Second Site"
+  "name": "Mason's Site 2"
 }
 
 ### Deletes a site
-DELETE http://localhost:3000/sites/2
+DELETE http://localhost:3000/sites/4
 Authorization: Bearer {{jwt}}
