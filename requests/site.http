@@ -1,1 +1,30 @@
-@jwt =
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTU1NzA1MzN9.fPm7SdwyVnkmCLMumC7Sk-BxeTeF5UaeMFPJitbaL9s
+
+### View users sites
+GET http://localhost:3000/sites
+Authorization: Bearer {{jwt}}
+
+### View a site
+GET http://localhost:3000/sites/2
+
+### Creates a site
+POST http://localhost:3000/sites
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+  "name": "Mason's Second Site"
+}
+
+### Updates a site
+PATCH http://localhost:3000/sites/2
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+  "name": "Mason's Second Site"
+}
+
+### Deletes a site
+DELETE http://localhost:3000/sites/2
+Authorization: Bearer {{jwt}}
