@@ -1,15 +1,16 @@
 class OrdersController < ApplicationController
-  # before_action :authenticate_user
+  before_action :authenticate_user
 
   def index
     site = Site.find_by(id: params[:site_id])
-    orders = site.orders
-    render json: orders.as_json
+    @orders = site.orders
+    @orders = @orders.order(created_at: :desc)
+    render template: "orders/index"
   end
 
   def show
-    order = Order.find_by(id: params[:id])
-    render json: order.as_json
+    @order = Order.find_by(id: params[:id])
+    render template: "orders/show"
   end
 
   def create
@@ -30,7 +31,8 @@ class OrdersController < ApplicationController
 
     if order.save
       carted_services.update_all(status: "purchased", order_id: order.id)
-      render json: order.as_json
+      @order = order
+      render template: "orders/show"
     else
       render json: { errors: order.errors.full_messages }, status: 422
     end

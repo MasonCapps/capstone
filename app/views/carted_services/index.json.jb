@@ -1,0 +1,1 @@
+render partial: "carted_services/carted_services", collection: @carted_services, as: :carted_service

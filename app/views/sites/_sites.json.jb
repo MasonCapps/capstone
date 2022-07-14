@@ -1,0 +1,9 @@
+{
+  id: site.id,
+  user_id: site.user_id,
+  name: site.name,
+  services: site.services,
+  carted_services: site.carted_services,
+  created_at: site.created_at,
+  updated_at: site.updated_at,
+}

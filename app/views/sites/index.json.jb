@@ -1,0 +1,1 @@
+render partial: "sites/sites", collection: @sites, as: :site

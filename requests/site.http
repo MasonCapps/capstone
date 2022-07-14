@@ -1,14 +1,14 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTU1NzA1MzN9.fPm7SdwyVnkmCLMumC7Sk-BxeTeF5UaeMFPJitbaL9s
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTYxNzkxNDl9.Bt1IBKmd_-owv08zU4V3O04t43ArazWOX5vxt9w4164
 
 ### View users sites
-GET http://localhost:3000/sites
+GET http://localhost:3000/sites.json
 Authorization: Bearer {{jwt}}
 
 ### View a site
-GET http://localhost:3000/sites/2
+GET http://localhost:3000/sites/5.json
 
 ### Creates a site
-POST http://localhost:3000/sites
+POST http://localhost:3000/sites.json
 Authorization: Bearer {{jwt}}
 Content-Type: application/json
 
@@ -17,7 +17,7 @@ Content-Type: application/json
 }
 
 ### Updates a site
-PATCH http://localhost:3000/sites/4
+PATCH http://localhost:3000/sites/4.json
 Authorization: Bearer {{jwt}}
 Content-Type: application/json
 
@@ -26,5 +26,5 @@ Content-Type: application/json
 }
 
 ### Deletes a site
-DELETE http://localhost:3000/sites/4
+DELETE http://localhost:3000/sites/6
 Authorization: Bearer {{jwt}}

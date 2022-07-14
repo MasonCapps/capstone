@@ -3,8 +3,9 @@ class CartedServicesController < ApplicationController
 
   def index
     site = Site.find_by(id: params[:site_id])
-    carted_services = site.carted_services
-    render json: carted_services.as_json
+    @carted_services = site.carted_services.where(status: "carted")
+    @carted_services = @carted_services.order(created_at: :desc)
+    render template: "carted_services/index"
   end
 
   def create
@@ -17,7 +18,8 @@ class CartedServicesController < ApplicationController
       status: "carted",
     )
     if carted_service.save
-      render json: carted_service.as_json
+      @carted_service = carted_service
+      render template: "carted_services/show"
     else
       render json: { errors: carted_service.errors.full_messages }, status: 422
     end

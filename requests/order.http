@@ -1,10 +1,12 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTU1NzA1MzN9.fPm7SdwyVnkmCLMumC7Sk-BxeTeF5UaeMFPJitbaL9s
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NTc2NTg5NTd9.2EljkOMfM8W1y3Mxyx_2dKcLYfGSFNJld8hL71vOsMw
 
 ### View a sites orders
-GET http://localhost:3000/sites/1/orders
+GET http://localhost:3000/sites/1/orders.json
+Authorization: Bearer {{jwt}}
 
 ### View an order
 GET http://localhost:3000/sites/1/orders/1
+Authorization: Bearer {{jwt}}
 
 ### Create an order
 POST http://localhost:3000/sites/1/orders

@@ -11,10 +11,10 @@ Content-Type: application/json
 }
 
 ### Sessions create (login)
-POST http://localhost:3000/sessions.json
+POST http://localhost:3000/sessions
 Content-Type: application/json
 
 {
-  "email": "mason@test.com",
+  "email": "bret@test.com",
   "password": "password"
 }

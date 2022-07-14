@@ -1,0 +1,27 @@
+{
+  id: order.id,
+  site_id: order.site_id,
+  user_id: order.user_id,
+  subtotal: order.subtotal,
+  total: order.total,
+  first_name: order.user.first_name,
+  last_name: order.user.last_name,
+  phone_number: order.user.phone_number,
+  address: order.user.address,
+  services: order.carted_services.map do |service|
+    {
+      id: service.id,
+      site_id: service.site_id,
+      service: service.service,
+      service_id: service.service_id,
+      user_id: service.user_id,
+      order_id: service.order_id,
+      scheduled_date: service.scheduled_date,
+      status: service.status,
+      created_at: service.created_at,
+      updated_at: service.updated_at,
+    }
+  end,
+  created_at: order.created_at,
+  updated_at: order.updated_at,
+}

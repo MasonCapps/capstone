@@ -2,13 +2,13 @@ class SitesController < ApplicationController
   before_action :authenticate_user, except: [:show]
 
   def index
-    sites = current_user.sites
-    render json: sites.as_json
+    @sites = current_user.sites
+    render template: "sites/index"
   end
 
   def show
-    site = Site.find_by(id: params[:id])
-    render json: site.as_json
+    @site = Site.find_by(id: params[:id])
+    render template: "sites/show"
   end
 
   def create
@@ -17,7 +17,8 @@ class SitesController < ApplicationController
       name: params[:name],
     )
     if site.save
-      render json: site.as_json
+      @site = site
+      render template: "sites/show"
     else
       render json: { errors: site.errors.full_messages }, status: 422
     end
@@ -28,7 +29,8 @@ class SitesController < ApplicationController
     site.name = params[:name]
 
     if site.save
-      render json: site.as_json
+      @site = site
+      render template: "sites/show"
     else
       render json: { errors: site.errors.full_messages }, status: 422
     end
